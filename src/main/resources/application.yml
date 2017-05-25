@@ -1,0 +1,17 @@
+server:
+  port: ${zuul.port}
+
+spring:
+  application:
+    name: zuul
+  zipkin:
+    base-url: ${zuul.zipkin.url}
+
+zuul:
+  routes:
+    api-a:
+      path: /notify/**
+      serviceId: service-notify
+    api-b:
+      path: /biz/**
+      serviceId: service-biz
